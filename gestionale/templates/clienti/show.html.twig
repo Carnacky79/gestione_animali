@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Clienti{% endblock %}
+
+{% block body %}
+
+    {{ include('common/nav.html.twig', {active: 'home'}) }}
+    <main class="container">
+        {% for animale in animali %}
+            {{ animale.nome }}
+        {% endfor %}
+
+        <div class="bg-light p-5 rounded" style="margin-top:100px">
+            {% for animale in animali %}
+                <h1> {{ animale.nome }} </h1>
+            {% endfor %}
+            <h1>Clienti</h1>
+
+            <table class="table">
+                <tbody>
+                <tr>
+                    <th>Nome</th>
+                    <td>{{ clienti.nome }}</td>
+                </tr>
+                <tr>
+                    <th>Cognome</th>
+                    <td>{{ clienti.cognome }}</td>
+                </tr>
+                <tr>
+                    <th>Cf</th>
+                    <td>{{ clienti.cf }}</td>
+                </tr>
+                <tr>
+                    <th>Telefono</th>
+                    <td>{{ clienti.telefono }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ clienti.email }}</td>
+                </tr>
+                <tr>
+                    <th>Foto</th>
+                    <td>{{ clienti.foto }}</td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="flex-fill justify-content-end " style="text-align: right">
+
+
+                {{ include('clienti/_delete_form.html.twig') }}
+            </div>
+        </div>
+    </main>
+{% endblock %}
